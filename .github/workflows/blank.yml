@@ -31,5 +31,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           registry: ghcr.io
           image: krnmalde/test:develop-30d0242
+          run: docker run -d -p 8000:8000 krnmalde/test:develop-30d0242
           
           
