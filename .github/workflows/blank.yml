@@ -31,5 +31,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           registry: ghcr.io
           image: krnmalde/test:develop-30d0242
-          options: -p 80:80
+          
           
