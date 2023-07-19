@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  
+    # The type of runner that the job will run on
+  
+
+  workflow_dispatch:
+
+jobs:
+  docker:
+    name: Run privately owned image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run Image
+        uses: c-schicho/DockerRun-Action@v1
+        with:
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          registry: ghcr.io
+          image: krnmalde/test:develop-30d0242
+          options: -p 8000:8000
+          
